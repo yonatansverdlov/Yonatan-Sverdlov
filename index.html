@@ -15,6 +15,8 @@ title: "Yonatan Sverdlov - Publications"
             line-height: 1.6;
             margin: 40px;
             background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
         .container {
             max-width: 800px;
@@ -71,24 +73,66 @@ title: "Yonatan Sverdlov - Publications"
             height: 100%;
             object-fit: cover;
         }
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+        body.dark-mode .container {
+            background-color: #444;
+            color: #f4f4f4;
+        }
+        body.dark-mode .publication {
+            background: #555;
+            border-left: 5px solid #fff;
+        }
+        body.dark-mode #theme-toggle {
+            color: #f4f4f4;
+        }
+        #nav-links {
+            position: fixed;
+            top: 20px;
+            right: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 18px;
+        }
+        #nav-links a {
+            color: #333;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+        #nav-links a:hover {
+            color: #007acc;
+        }
     </style>
 </head>
 <body>
-    <div class="nav">
+    <button id="theme-toggle">&#127774;</button>
+    <div id="nav-links">
         <a href="#about">About</a>
         <a href="#publications">Publications</a>
     </div>
     <div class="container">
-        <section id="about">
+        <div class="image-container">
+            <img src="path/to/your/image.jpg" alt="Yonatan Sverdlov">
+        </div>
+        <section>
             <h1><strong>Yonatan Sverdlov</strong></h1>
             <h3 style="color: #40E0D0;">PhD Student / Researcher</h3>
             <p>I am a PhD student under the supervision of Prof. Nadav Dym. My research focuses on unstructured data, Graph Neural Networks (GNNs), representation-based learning, over-squashing, and over-smoothing. </p>
         </section>
-
-        <div class="image-container">
-            <img src="me.jpg" alt="Yonatan Sverdlov">
-        </div>
-        
     </div>
 
     <div class="container">
@@ -103,15 +147,23 @@ title: "Yonatan Sverdlov - Publications"
                 <strong>On the Expressive Power of Sparse Geometric MPNNs</strong><br>
                 <em>Yonatan Sverdlov, Nadav Dym</em><br>
                 <a href="https://arxiv.org/abs/2407.02025">arXiv</a> | <a href="https://github.com/yonatansverdlov/E-GenNet">Code</a> | <a href="https://scholar.google.com/scholar?q=On+the+Expressive+Power+of+Sparse+Geometric+MPNNs">BibTeX</a>
-                <br><em>International Conference on Learning Representations (ICLR) 2025</em></div>
+            <br><em>International Conference on Learning Representations (ICLR) 2025</em></div>
             <div class="publication">
                 <strong>Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations</strong><br>
                 <em>Yonatan Sverdlov, Ido Springer, Nadav Dym</em><br>
                 <a href="https://arxiv.org/abs/2410.06665">arXiv</a> | <a href="https://github.com/yonatansverdlov/SchurNet">Code</a> | <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.06665">BibTeX</a>
-                <br><em>International Conference on Learning Representations (ICLR) 2025</em></div>
             </div>
         </section>
     </div>
+
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle');
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggleButton.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+        });
+    </script>
 </body>
 </html>
+
 
