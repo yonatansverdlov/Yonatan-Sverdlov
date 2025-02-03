@@ -23,6 +23,9 @@ title: "Yonatan Sverdlov - Publications"
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         h1, h2 {
             color: #333;
@@ -56,6 +59,18 @@ title: "Yonatan Sverdlov - Publications"
         .publication a:hover {
             text-decoration: underline;
         }
+        .image-container {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -67,9 +82,16 @@ title: "Yonatan Sverdlov - Publications"
         <section id="about">
             <h1><strong>Yonatan Sverdlov</strong></h1>
             <h3>PhD Student / Researcher</h3>
-            <p>I am a PhD student under the supervision of Prof. Nadav Dym. My research focuses on unstructured data, Graph Neural Networks (GNNs), representation-based learning, over-squashing, and over-smoothing.</p>
+            <p>I am a PhD student under the supervision of Prof. Nadav Dym. My research focuses on unstructured data, Graph Neural Networks (GNNs), representation-based learning, over-squashing, and over-smoothing. </p>
         </section>
 
+        <div class="image-container">
+            <img src="me.jpg" alt="Yonatan Sverdlov">
+        </div>
+        
+    </div>
+
+    <div class="container">
         <section id="publications">
             <h2>Publications</h2>
             <div class="publication">
@@ -91,3 +113,4 @@ title: "Yonatan Sverdlov - Publications"
     </div>
 </body>
 </html>
+
