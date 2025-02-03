@@ -1,5 +1,5 @@
 ---
-layout: default`
+layout: default
 ---
 
 <!DOCTYPE html>
@@ -8,6 +8,7 @@ layout: default`
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yonatan Sverdlov - Publications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,6 +53,9 @@ layout: default`
             padding: 10px;
             background: #f9f9f9;
             border-left: 5px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .publication a {
             color: #007acc;
@@ -115,9 +119,28 @@ layout: default`
         #nav-links a:hover {
             color: #007acc;
         }
+        #social-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #social-links a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 30px;
+        }
+        #social-links a:hover {
+            color: #007acc;
+        }
     </style>
 </head>
 <body>
+    <div id="social-links">
+        <a href="https://github.com/yonatansverdlov" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="yonatans@campus.technion.ac.il" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=M4o74roAAAAJ&hl=iw" target="_blank" title="Google Scholar"><i class="fab fa-google"></i></a>
+    </div>
+
     <button id="theme-toggle">&#127774;</button>
     <div id="nav-links">
         <a href="#about">About</a>
@@ -138,20 +161,36 @@ layout: default`
         <section id="publications">
             <h2>Publications</h2>
             <div class="publication">
-                <strong>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</strong><br>
-                <em>Yonatan Sverdlov, Yair Davidson, Nadav Dym, Tal Amir</em><br>
-                <a href="https://arxiv.org/abs/2410.09118">arXiv</a> | <a href="https://github.com/yonatansverdlov/Over-squashing">Code</a> | <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.09118">BibTeX</a>
+                <div>
+                    <strong>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</strong><br>
+                    <em>Yonatan Sverdlov, Yair Davidson, Nadav Dym, Tal Amir</em><br>
+                    <a href="https://arxiv.org/abs/2410.09118">arXiv</a> | <a href="https://github.com/yonatansverdlov/Over-squashing">Code</a> | <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.09118">BibTeX</a>
+                </div>
+                <div class="image-container">
+                    <img src="Ring.png" alt="FSW-GNN Image">
+                </div>
             </div>
             <div class="publication">
-                <strong>On the Expressive Power of Sparse Geometric MPNNs</strong><br>
-                <em>Yonatan Sverdlov, Nadav Dym</em><br>
-                <a href="https://arxiv.org/abs/2407.02025">arXiv</a> | <a href="https://github.com/yonatansverdlov/E-GenNet">Code</a> | <a href="https://scholar.google.com/scholar?q=On+the+Expressive+Power+of+Sparse+Geometric+MPNNs">BibTeX</a>
-            <br><em>International Conference on Learning Representations (ICLR) 2025</em></div>
+                <div>
+                    <strong>On the Expressive Power of Sparse Geometric MPNNs</strong><br>
+                    <em>Yonatan Sverdlov, Nadav Dym</em><br>
+                    <a href="https://arxiv.org/abs/2407.02025">arXiv</a> | <a href="https://github.com/yonatansverdlov/E-GenNet">Code</a> | <a href="https://scholar.google.com/scholar?q=On+the+Expressive+Power+of+Sparse+Geometric+MPNNs">BibTeX</a>
+                <br><em>International Conference on Learning Representations (ICLR) 2025</em>
+                </div>
+                <div class="image-container">
+                    <img src="egent.png" alt="Sparse Geometric MPNNs Image">
+                </div>
+            </div>
             <div class="publication">
-                <strong>Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations</strong><br>
-                <em>Yonatan Sverdlov, Ido Springer, Nadav Dym</em><br>
-                <a href="https://arxiv.org/abs/2410.06665">arXiv</a> | <a href="https://github.com/yonatansverdlov/SchurNet">Code</a> | <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.06665">BibTeX</a>
-                <br><em>International Conference on Learning Representations (ICLR) 2025</em></div>
+                <div>
+                    <strong>Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations</strong><br>
+                    <em>Yonatan Sverdlov, Ido Springer, Nadav Dym</em><br>
+                    <a href="https://arxiv.org/abs/2410.06665">arXiv</a> | <a href="https://github.com/yonatansverdlov/SchurNet">Code</a> | <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.06665">BibTeX</a>
+                    <br><em>International Conference on Learning Representations (ICLR) 2025</em>
+                </div>
+                <div class="image-container">
+                    <img src="Equivariant_map_commutative_diagram" alt="Equivariance Image">
+                </div>
             </div>
         </section>
     </div>
@@ -165,5 +204,6 @@ layout: default`
     </script>
 </body>
 </html>
+
 
 
