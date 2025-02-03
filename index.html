@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Publications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #333;
+            color: white;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+        .nav a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+        .publication, .talk {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 5px solid #333;
+        }
+        .publication a, .talk a {
+            color: #007acc;
+            text-decoration: none;
+        }
+        .publication a:hover, .talk a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#talks">Talks</a>
+    </div>
+    <div class="container">
+        <section id="about">
+            <h1>Your Name</h1>
+            <h3>PhD Student / Researcher</h3>
+            <p>I am a researcher working in the field of machine learning, geometric deep learning, and representation learning. My research focuses on developing expressive neural architectures for graphs and sets, particularly in the areas of unstructured data, GNNs, representation-based learning, over-squashing, and over-smoothing.</p>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <div class="publication">
+                <strong>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</strong><br>
+                <em>Yonatan Sverdlov, Nadav Dym</em><br>
+                <a href="">arXiv</a> | <a href="">Code</a> | <a href="">BibTeX</a>
+            </div>
+            <div class="publication">
+                <strong>On the Expressive Power of Sparse Geometric MPNNs</strong><br>
+                <em>Yonatan Sverdlov, Yaron Lipman</em><br>
+                <a href="">arXiv</a> | <a href="">Code</a> | <a href="">BibTeX</a>
+            </div>
+            <div class="publication">
+                <strong>Representation Learning on Graphs: Methods and Applications</strong><br>
+                <em>Yonatan Sverdlov, Haggai Maron, Yaron Lipman</em><br>
+                <a href="">arXiv</a> | <a href="">Code</a> | <a href="">BibTeX</a>
+            </div>
+        </section>
+
+        <section id="talks">
+            <h2>Talks</h2>
+            <div class="talk">
+                <strong>Flow Matching Tutorial (December 2024)</strong><br>
+                <em>NeurIPS 2024</em><br>
+                <a href="#">Slides</a> | <a href="#">Talk</a> | <a href="#">Paper</a>
+            </div>
+            <div class="talk">
+                <strong>Geometric Generative Modeling Tutorial (November 2024)</strong><br>
+                <em>Learning on Graphs Conference 2024</em><br>
+                <a href="#">Talk</a> | <a href="#">Website</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
