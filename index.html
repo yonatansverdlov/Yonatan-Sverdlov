@@ -47,7 +47,15 @@ layout: default
         .publication a:hover {
             text-decoration: underline;
         }
-        .image-container {
+        /* Profile image (large) */
+        .image-container.profile {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+        }
+        /* Publication images (smaller) */
+        .image-container.publication {
             flex-shrink: 0;
             width: 100px;
             height: 100px;
@@ -68,7 +76,7 @@ layout: default
     </div>
 
     <div class="container">
-        <div class="image-container">
+        <div class="image-container profile">
             <img src="me.jpg" alt="Yonatan Sverdlov">
         </div>
         <section>
@@ -90,7 +98,7 @@ layout: default
                     <a href="https://github.com/yonatansverdlov/Over-squashing">Code</a> | 
                     <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.09118">BibTeX</a>
                 </div>
-                <div class="image-container">
+                <div class="image-container publication">
                     <img src="Ring.png" alt="FSW-GNN Image">
                 </div>
             </div>
@@ -104,7 +112,7 @@ layout: default
                     <a href="https://scholar.google.com/scholar?q=On+the+Expressive+Power+of+Sparse+Geometric+MPNNs">BibTeX</a>
                     <br><em>International Conference on Learning Representations (ICLR) 2025</em>
                 </div>
-                <div class="image-container">
+                <div class="image-container publication">
                     <img src="egent.png" alt="Sparse Geometric MPNNs Image">
                 </div>
             </div>
@@ -118,7 +126,7 @@ layout: default
                     <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.06665">BibTeX</a>
                     <br><em>International Conference on Learning Representations (ICLR) 2025</em>
                 </div>
-                <div class="image-container">
+                <div class="image-container publication">
                     <img src="Equivariant_map_commutative_diagram.png" alt="Equivariance Image">
                 </div>
             </div>
