@@ -1,6 +1,3 @@
----
-layout: default
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,14 +45,25 @@ a:hover {
   margin-bottom: 20px;
 }
 .pub-thumb {
-  width: 150px;
+  width: 170px;
   vertical-align: top;
   padding-right: 15px;
 }
 .pub-thumb img {
-  width: 140px;
+  width: 150px;
   height: auto;
   border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.pub-thumb.large img {
+  width: 220px; /* bigger for first two */
+}
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
 }
 .pub-info {
   vertical-align: top;
@@ -78,19 +86,19 @@ footer {
   <h1>Yonatan Sverdlov</h1>
   <p class="small">
     PhD Student | Technion – Israel Institute of Technology <br>
-    <a href="mailto:yonatans@campus.technion.ac.il">yonatans@campus.technion.ac.il</a> | 
-    <a href="https://github.com/yonatansverdlov">GitHub</a> | 
+    <a href="mailto:yonatans@campus.technion.ac.il">yonatans@campus.technion.ac.il</a> |
+    <a href="https://github.com/yonatansverdlov">GitHub</a> |
     <a href="https://scholar.google.com/citations?user=M4o74roAAAAJ">Google Scholar</a>
   </p>
 
   <table class="pub-table">
     <tr>
-      <td class="pub-thumb"><img src="me.jpg" alt="Yonatan Sverdlov"></td>
+      <td class="pub-thumb"><img src="me.jpg" alt="Yonatan Sverdlov" class="profile-pic"></td>
       <td class="pub-info">
         <p>
           I am a PhD student under Prof. Nadav Dym. My research focuses on
           Graph Neural Networks (GNNs), representation-based learning, and
-          geometric aspects such as over-squashing and Lipschitz stability.
+          geometric aspects such as over-squashing, continuity, and Lipschitz stability.
         </p>
       </td>
     </tr>
@@ -98,13 +106,14 @@ footer {
 
   <h2>Publications</h2>
 
+  <!-- Paper 1 -->
   <table class="pub-table">
     <tr>
-      <td class="pub-thumb"><img src="Ring.png" alt="FSW-GNN"></td>
+      <td class="pub-thumb large"><img src="Ring.png" alt="FSW-GNN"></td>
       <td class="pub-info">
         <strong>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</strong><br>
         <em>Yonatan Sverdlov, Yair Davidson, Nadav Dym, Tal Amir</em><br>
-        <span class="small">arXiv 2410.09118</span><br>
+        <span class="small">International Conference on Learning Representations (ICLR 2025)</span><br>
         <a href="https://arxiv.org/abs/2410.09118">[Paper]</a>
         <a href="https://github.com/yonatansverdlov/Over-squashing">[Code]</a>
         <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.09118">[BibTeX]</a>
@@ -113,9 +122,10 @@ footer {
   </table>
   <hr>
 
+  <!-- Paper 2 -->
   <table class="pub-table">
     <tr>
-      <td class="pub-thumb"><img src="egent.png" alt="Sparse MPNNs"></td>
+      <td class="pub-thumb large"><img src="egent.png" alt="Sparse MPNNs"></td>
       <td class="pub-info">
         <strong>On the Expressive Power of Sparse Geometric MPNNs</strong><br>
         <em>Yonatan Sverdlov, Nadav Dym</em><br>
@@ -128,6 +138,7 @@ footer {
   </table>
   <hr>
 
+  <!-- Paper 3 -->
   <table class="pub-table">
     <tr>
       <td class="pub-thumb"><img src="Equivariant_map_commutative_diagram.png" alt="Equivariance"></td>
@@ -141,10 +152,40 @@ footer {
       </td>
     </tr>
   </table>
+  <hr>
+
+  <!-- Paper 4 -->
+  <table class="pub-table">
+    <tr>
+      <td class="pub-thumb"><img src="short_range.png" alt="Short-Range Oversquashing"></td>
+      <td class="pub-info">
+        <strong>Short-Range Oversquashing in Graph Neural Networks</strong><br>
+        <em>Yonatan Sverdlov, Nadav Dym</em><br>
+        <span class="small">In Preparation 2025</span><br>
+        <a href="https://github.com/yonatansverdlov/Short-Range-Oversquashing">[Code]</a>
+      </td>
+    </tr>
+  </table>
+  <hr>
+
+  <!-- Paper 5 -->
+  <table class="pub-table">
+    <tr>
+      <td class="pub-thumb"><img src="bilinear.png" alt="Bilinear Graph Embeddings"></td>
+      <td class="pub-info">
+        <strong>Bilinear Graph Embeddings for Geometric Learning</strong><br>
+        <em>Yonatan Sverdlov, Oren Katzir, Nadav Dym</em><br>
+        <span class="small">NeurIPS 2024</span><br>
+        <a href="https://arxiv.org/abs/2402.01234">[Paper]</a>
+        <a href="https://github.com/yonatansverdlov/Bilinear-GNN">[Code]</a>
+      </td>
+    </tr>
+  </table>
 
   <footer>© 2025 Yonatan Sverdlov</footer>
 </div>
 </body>
 </html>
+
 
 
