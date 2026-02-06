@@ -1,191 +1,267 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Yonatan Sverdlov</title>
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #FFFFFF;
-  color: #000000;
-  margin: 0;
-  padding: 0;
-}
-#main {
-  width: 900px;
-  margin: 30px auto;
-}
-h1 {
-  font-size: 28px;
-  margin-bottom: 0;
-}
-h2 {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
-  font-size: 20px;
-}
-p {
-  line-height: 1.5;
-}
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 15px 0;
-}
-a {
-  color: #003399;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-.pub-table {
-  width: 100%;
-  border-spacing: 0;
-  margin-bottom: 20px;
-}
-.pub-thumb {
-  width: 170px;
-  vertical-align: top;
-  padding-right: 15px;
-}
-.pub-thumb img {
-  width: 180px;
-  height: auto;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-.profile-pic {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ccc;
-}
-.pub-info {
-  vertical-align: top;
-}
-.small {
-  font-size: 14px;
-  color: #555;
-}
-footer {
-  text-align: center;
-  font-size: 13px;
-  color: #555;
-  margin-top: 30px;
-}
-</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Yonatan Sverdlov</title>
+
+  <meta name="author" content="Yonatan Sverdlov">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="0DdB5OUMjPIECnNDQsCR7aKGHWBuYuj4jEB11r4Q_ns" />
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+
+  <script>
+    const copyToClipboard = str => {
+      const el = document.createElement('textarea');
+      el.value = str;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      alert("The following bibtextex has been copied to clipboard:\n\n" + el.value);
+    };
+  </script>
+
+  <!-- Collaborator auto-linking: centralize names -> URLs -->
+  <script>
+    // Add collaborators only when you have the correct URL (to avoid wrong links).
+    const COLLAB_LINKS = new Map([
+      ["Nadav Dym", "https://dym.tech/"],
+      ["Tal Amir", "https://talamir.github.io/"],
+      ["Yaaqov Mishayev", "https://scholar.google.com/citations?user=Fv0lJX8AAAAJ&hl=en"]
+      // Add more only if you know their official pages.
+    ]);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const SKIP_TAGS = new Set(["A", "SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE", "NOSCRIPT"]);
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          let p = node.parentNode;
+          while (p) {
+            if (SKIP_TAGS.has(p.nodeName)) return NodeFilter.FILTER_REJECT;
+            p = p.parentNode;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+
+      const names = Array.from(COLLAB_LINKS.keys()).sort((a, b) => b.length - a.length);
+      const toProcess = [];
+      let n;
+      while ((n = walker.nextNode())) toProcess.push(n);
+
+      for (const textNode of toProcess) {
+        let text = textNode.nodeValue;
+
+        const escapedNames = names.map(nm => nm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+        if (escapedNames.length === 0) continue;
+
+        const re = new RegExp("\\b(" + escapedNames.join("|") + ")\\b", "g");
+        let match;
+        let cursor = 0;
+        let changed = false;
+
+        const frag = document.createDocumentFragment();
+
+        while ((match = re.exec(text)) !== null) {
+          const name = match[0];
+          const start = match.index;
+
+          if (start > cursor) frag.appendChild(document.createTextNode(text.slice(cursor, start)));
+
+          const a = document.createElement("a");
+          a.textContent = name;
+          a.href = COLLAB_LINKS.get(name) || "#";
+          a.target = "_blank";
+          a.rel = "noopener";
+          frag.appendChild(a);
+
+          cursor = re.lastIndex;
+          changed = true;
+        }
+
+        if (changed) {
+          if (cursor < text.length) frag.appendChild(document.createTextNode(text.slice(cursor)));
+          textNode.parentNode.replaceChild(frag, textNode);
+        }
+      }
+    });
+  </script>
+  <!-- /Collaborator auto-linking -->
 </head>
 
 <body>
-<div id="main">
-  <h1>Yonatan Sverdlov</h1>
-  <p class="small">
-    PhD Student | Technion – Israel Institute of Technology <br>
-    <a href="mailto:yonatans@campus.technion.ac.il">yonatans@campus.technion.ac.il</a> |
-    <a href="https://github.com/yonatansverdlov">GitHub</a> |
-    <a href="https://scholar.google.com/citations?user=M4o74roAAAAJ">Google Scholar</a>
-  </p>
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
 
-  <table class="pub-table">
-    <tr>
-      <td class="pub-thumb"><img src="me.jpg" alt="Yonatan Sverdlov" class="profile-pic"></td>
-      <td class="pub-info">
-        <p>
-          I am a PhD student under Prof. Nadav Dym. My research focuses on Graph Neural Networks (GNNs),
-          representation-based learning, and geometric aspects such as over-squashing, continuity, and Lipschitz stability.
-        </p>
-      </td>
-    </tr>
+          <!-- Header -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr style="padding:0px">
+                <td style="padding:2.5%;width:63%;vertical-align:middle">
+                  <p style="text-align:center">
+                    <name>Yonatan Sverdlov</name>
+                  </p>
+
+                  <p>
+                    I am a PhD student at the Technion – Israel Institute of Technology under the supervision of Prof. Nadav Dym.
+                    My research focuses on Graph Neural Networks (GNNs), representation-based learning, and geometric aspects such as
+                    over-squashing, continuity, and Lipschitz stability.
+                  </p>
+
+                  <p style="text-align:center">
+                    <a href="mailto:yonatans@campus.technion.ac.il">Email</a> &nbsp/&nbsp
+                    <a href="https://github.com/yonatansverdlov" target="_blank">GitHub</a> &nbsp/&nbsp
+                    <a href="https://scholar.google.com/citations?user=M4o74roAAAAJ" target="_blank">Google Scholar</a>
+                  </p>
+                </td>
+
+                <td style="padding:2.5%;width:40%;max-width:40%">
+                  <!-- Update these paths to your actual images -->
+                  <a href="me.jpg">
+                    <img style="width:100%;max-width:100%" alt="profile photo" src="me.jpg" class="hoverZoomLink">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Research / Publications -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                  <heading>Publications</heading>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+
+              <!-- NeurIPS 2025 -->
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="activations.png" alt="Monotone and Separable" width="160" height="160">
+                </td>
+                <td width="75%" valign="middle">
+                  <papertitle>Monotone and Separable Set Functions: Characterizations and Neural Models</papertitle>
+                  <br>
+                  <strong>Yonatan Sverdlov</strong>, Nadav Dym
+                  <br>
+                  <em>NeurIPS 2025</em>
+                  <br>
+                  <div class="btn-group">
+                    <a href="https://arxiv.org/abs/2510.23634" target="_blank">Paper</a> /
+                    <a href="https://github.com/structlearning/MASNET" target="_blank">Code</a>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- LOG 2025 Best paper -->
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="two_radius.jpg" alt="Short-Range Oversquashing" width="160" height="160">
+                </td>
+                <td width="75%" valign="middle">
+                  <papertitle>Short-Range Oversquashing in Graph Neural Networks</papertitle>
+                  <br>
+                  Yaaqov Mishayev, <strong>Yonatan Sverdlov</strong>, Tal Amir, Nadav Dym
+                  <br>
+                  <em>LoG 2025</em> &nbsp; (<strong>Best paper</strong>)
+                  <br>
+                  <div class="btn-group">
+                    <a href="https://openreview.net/pdf?id=rmX8Jamnyg" target="_blank">Paper</a> /
+                    <a href="https://github.com/YakovM93/Short-Range-Oversquashing" target="_blank">Code</a>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- LOG 2025 FSW-GNN -->
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="Ring.png" alt="FSW-GNN" width="160" height="160">
+                </td>
+                <td width="75%" valign="middle">
+                  <papertitle>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</papertitle>
+                  <br>
+                  <strong>Yonatan Sverdlov</strong>, Yair Davidson, Nadav Dym, Tal Amir
+                  <br>
+                  <em>LoG 2025</em>
+                  <br>
+                  <div class="btn-group">
+                    <a href="https://arxiv.org/abs/2410.09118" target="_blank">Paper</a> /
+                    <a href="https://github.com/yonatansverdlov/Over-squashing" target="_blank">Code</a> /
+                    <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.09118" target="_blank">BibTeX</a>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- ICLR 2025 Sparse Geometric MPNNs -->
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="egent.png" alt="Sparse MPNNs" width="160" height="160">
+                </td>
+                <td width="75%" valign="middle">
+                  <papertitle>On the Expressive Power of Sparse Geometric MPNNs</papertitle>
+                  <br>
+                  <strong>Yonatan Sverdlov</strong>, Nadav Dym
+                  <br>
+                  <em>ICLR 2025</em>
+                  <br>
+                  <div class="btn-group">
+                    <a href="https://arxiv.org/abs/2407.02025" target="_blank">Paper</a> /
+                    <a href="https://github.com/yonatansverdlov/E-GenNet" target="_blank">Code</a> /
+                    <a href="https://scholar.google.com/scholar?q=On+the+Expressive+Power+of+Sparse+Geometric+MPNNs" target="_blank">BibTeX</a>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- ICLR 2025 Multi-Permutation Equivariance -->
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="Equivariant_map_commutative_diagram.png" alt="Equivariance" width="160" height="160">
+                </td>
+                <td width="75%" valign="middle">
+                  <papertitle>Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations</papertitle>
+                  <br>
+                  <strong>Yonatan Sverdlov</strong>, Ido Springer, Nadav Dym
+                  <br>
+                  <em>ICLR 2025</em>
+                  <br>
+                  <div class="btn-group">
+                    <a href="https://arxiv.org/abs/2410.06665" target="_blank">Paper</a> /
+                    <a href="https://github.com/yonatansverdlov/SchurNet" target="_blank">Code</a> /
+                    <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.06665" target="_blank">BibTeX</a>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:0px">
+                  <br>
+                  <p style="margin-top:-20px;text-align:center;font-size:small;">
+                    © 2025 Yonatan Sverdlov · This website is based on Jon Barron’s template
+                    (<a href="https://jonbarron.info/">site</a>, <a href="https://github.com/jonbarron/jonbarron_website">source code</a>)
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </td>
+      </tr>
+    </tbody>
   </table>
-
-  <h2>Publications</h2>
-
-  <!-- [NeurIPS25] Monotone and Separable Set Functions -->
-  <table class="pub-table">
-    <tr>
-      <td class="pub-thumb"><img src="activations.png" alt="Monotone and Separable"></td>
-      <td class="pub-info">
-        <strong>Monotone and Separable Set Functions: Characterizations and Neural Models</strong><br>
-        <em>Yonatan Sverdlov, Nadav Dym</em><br>
-        <span class="small">Neural Information Processing Systems (NeurIPS 2025)</span><br>
-        <a href="https://arxiv.org/abs/2510.23634">[Paper]</a> |
-        <a href="https://github.com/structlearning/MASNET">[Code]</a>
-      </td>
-    </tr>
-  </table>
-
-  <hr>
-
-  <!-- Short-Range Oversquashing -->
-  <table class="pub-table">
-    <tr>
-      <td class="pub-thumb">
-        <img src="two_radius.jpg" alt="Short-Range Oversquashing" width="180" height="auto" style="border:1px solid #ccc;border-radius:6px;">
-      </td>
-      <td class="pub-info">
-        <strong>Short-Range Oversquashing in Graph Neural Networks</strong><br>
-        <em>Yaaqov Mishayev, Yonatan Sverdlov, Tal Amir, Nadav Dym</em><br>
-        <span class="small"><strong>Best paper</strong> – Learning on Graphs Conference (LOG 2025)</span><br>
-        <a href="https://openreview.net/pdf?id=rmX8Jamnyg">[Paper]</a> | 
-        <a href="https://github.com/YakovM93/Short-Range-Oversquashing">[Code]</a>
-      </td>
-    </tr>
-  </table>
-
-  <hr>
-
-  <!-- FSW-GNN -->
-  <table class="pub-table">
-    <tr>
-      <td class="pub-thumb"><img src="Ring.png" alt="FSW-GNN"></td>
-      <td class="pub-info">
-        <strong>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</strong><br>
-        <em>Yonatan Sverdlov, Yair Davidson, Nadav Dym, Tal Amir</em><br>
-        <span class="small">Learning on Graphs Conference (LOG 2025)</span><br>
-        <a href="https://arxiv.org/abs/2410.09118">[Paper]</a> |
-        <a href="https://github.com/yonatansverdlov/Over-squashing">[Code]</a> |
-        <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.09118">[BibTeX]</a>
-      </td>
-    </tr>
-  </table>
-
-  <hr>
-
-  <!-- Sparse Geometric MPNNs -->
-  <table class="pub-table">
-    <tr>
-      <td class="pub-thumb"><img src="egent.png" alt="Sparse MPNNs"></td>
-      <td class="pub-info">
-        <strong>On the Expressive Power of Sparse Geometric MPNNs</strong><br>
-        <em>Yonatan Sverdlov, Nadav Dym</em><br>
-        <span class="small">International Conference on Learning Representations (ICLR 2025)</span><br>
-        <a href="https://arxiv.org/abs/2407.02025">[Paper]</a> |
-        <a href="https://github.com/yonatansverdlov/E-GenNet">[Code]</a> |
-        <a href="https://scholar.google.com/scholar?q=On+the+Expressive+Power+of+Sparse+Geometric+MPNNs">[BibTeX]</a>
-      </td>
-    </tr>
-  </table>
-
-  <hr>
-
-  <!-- Multi-Permutation Equivariance -->
-  <table class="pub-table">
-    <tr>
-      <td class="pub-thumb"><img src="Equivariant_map_commutative_diagram.png" alt="Equivariance"></td>
-      <td class="pub-info">
-        <strong>Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations</strong><br>
-        <em>Yonatan Sverdlov, Ido Springer, Nadav Dym</em><br>
-        <span class="small">International Conference on Learning Representations (ICLR 2025)</span><br>
-        <a href="https://arxiv.org/abs/2410.06665">[Paper]</a> |
-        <a href="https://github.com/yonatansverdlov/SchurNet">[Code]</a> |
-        <a href="https://scholar.google.com/scholar_lookup?arxiv_id=2410.06665">[BibTeX]</a>
-      </td>
-    </tr>
-  </table>
-
-  <footer>© 2025 Yonatan Sverdlov</footer>
-</div>
 </body>
 </html>
