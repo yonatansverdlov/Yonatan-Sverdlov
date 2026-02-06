@@ -2,14 +2,61 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
   <title>Yonatan Sverdlov</title>
 
   <meta name="author" content="Yonatan Sverdlov">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="google-site-verification" content="0DdB5OUMjPIECnNDQsCR7aKGHWBuYuj4jEB11r4Q_ns" />
+
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+
+  <style>
+    /* ===== Image quality / layout fixes ===== */
+
+    /* Profile image: clean circle crop */
+    .profile-img {
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+      display: block;
+    }
+
+    /* Paper thumbnails: consistent size + clean crop */
+    .paper-thumb {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.12);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      background: #fff;
+      display: block;
+    }
+
+    /* Small hover effect (optional) */
+    .paper-thumb:hover, .profile-img:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      transition: 140ms ease;
+    }
+
+    /* Keep table cells aligned nicely */
+    .thumb-cell {
+      padding: 20px;
+      width: 25%;
+      vertical-align: middle;
+    }
+
+    /* Make thumbs slightly smaller on narrow screens */
+    @media (max-width: 520px) {
+      .paper-thumb { width: 140px; height: 140px; }
+      .profile-img { max-width: 200px; }
+    }
+  </style>
 
   <script>
     const copyToClipboard = str => {
@@ -23,14 +70,12 @@
     };
   </script>
 
-  <!-- Collaborator auto-linking: centralize names -> URLs -->
+  <!-- Collaborator auto-linking (optional) -->
   <script>
-    // Add collaborators only when you have the correct URL (to avoid wrong links).
     const COLLAB_LINKS = new Map([
       ["Nadav Dym", "https://dym.tech/"],
       ["Tal Amir", "https://talamir.github.io/"],
-      ["Yaaqov Mishayev", "https://scholar.google.com/citations?user=Fv0lJX8AAAAJ&hl=en"]
-      // Add more only if you know their official pages.
+      ["Yaaqov Mishayev", "https://github.com/YakovM93"]
     ]);
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -48,21 +93,18 @@
       });
 
       const names = Array.from(COLLAB_LINKS.keys()).sort((a, b) => b.length - a.length);
+      if (names.length === 0) return;
+
+      const escapedNames = names.map(nm => nm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      const re = new RegExp("\\b(" + escapedNames.join("|") + ")\\b", "g");
+
       const toProcess = [];
       let n;
       while ((n = walker.nextNode())) toProcess.push(n);
 
       for (const textNode of toProcess) {
-        let text = textNode.nodeValue;
-
-        const escapedNames = names.map(nm => nm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-        if (escapedNames.length === 0) continue;
-
-        const re = new RegExp("\\b(" + escapedNames.join("|") + ")\\b", "g");
-        let match;
-        let cursor = 0;
-        let changed = false;
-
+        const text = textNode.nodeValue;
+        let match, cursor = 0, changed = false;
         const frag = document.createDocumentFragment();
 
         while ((match = re.exec(text)) !== null) {
@@ -89,19 +131,18 @@
       }
     });
   </script>
-  <!-- /Collaborator auto-linking -->
 </head>
 
 <body>
   <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
+      <tr>
+        <td>
 
           <!-- Header -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
-              <tr style="padding:0px">
+              <tr>
                 <td style="padding:2.5%;width:63%;vertical-align:middle">
                   <p style="text-align:center">
                     <name>Yonatan Sverdlov</name>
@@ -120,17 +161,17 @@
                   </p>
                 </td>
 
-                <td style="padding:2.5%;width:40%;max-width:40%">
-                  <!-- Update these paths to your actual images -->
+                <td style="padding:2.5%;width:37%;vertical-align:middle">
+                  <!-- Use a HIGH-RES image file here for best results -->
                   <a href="me.jpg">
-                    <img style="width:100%;max-width:100%" alt="profile photo" src="me.jpg" class="hoverZoomLink">
+                    <img alt="profile photo" src="me.jpg" class="profile-img">
                   </a>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <!-- Research / Publications -->
+          <!-- Publications -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
@@ -146,8 +187,8 @@
 
               <!-- NeurIPS 2025 -->
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="activations.png" alt="Monotone and Separable" width="160" height="160">
+                <td class="thumb-cell">
+                  <img src="activations.png" alt="Monotone and Separable" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>Monotone and Separable Set Functions: Characterizations and Neural Models</papertitle>
@@ -163,10 +204,10 @@
                 </td>
               </tr>
 
-              <!-- LOG 2025 Best paper -->
+              <!-- LoG 2025 Best Paper -->
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="two_radius.jpg" alt="Short-Range Oversquashing" width="160" height="160">
+                <td class="thumb-cell">
+                  <img src="two_radius.jpg" alt="Short-Range Oversquashing" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>Short-Range Oversquashing in Graph Neural Networks</papertitle>
@@ -182,10 +223,10 @@
                 </td>
               </tr>
 
-              <!-- LOG 2025 FSW-GNN -->
+              <!-- LoG 2025 -->
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="Ring.png" alt="FSW-GNN" width="160" height="160">
+                <td class="thumb-cell">
+                  <img src="Ring.png" alt="FSW-GNN" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</papertitle>
@@ -202,10 +243,10 @@
                 </td>
               </tr>
 
-              <!-- ICLR 2025 Sparse Geometric MPNNs -->
+              <!-- ICLR 2025 -->
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="egent.png" alt="Sparse MPNNs" width="160" height="160">
+                <td class="thumb-cell">
+                  <img src="egent.png" alt="Sparse Geometric MPNNs" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>On the Expressive Power of Sparse Geometric MPNNs</papertitle>
@@ -222,10 +263,10 @@
                 </td>
               </tr>
 
-              <!-- ICLR 2025 Multi-Permutation Equivariance -->
+              <!-- ICLR 2025 -->
               <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="Equivariant_map_commutative_diagram.png" alt="Equivariance" width="160" height="160">
+                <td class="thumb-cell">
+                  <img src="Equivariant_map_commutative_diagram.png" alt="Equivariance" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations</papertitle>
@@ -251,8 +292,9 @@
                 <td style="padding:0px">
                   <br>
                   <p style="margin-top:-20px;text-align:center;font-size:small;">
-                    © 2025 Yonatan Sverdlov · This website is based on Jon Barron’s template
-                    (<a href="https://jonbarron.info/">site</a>, <a href="https://github.com/jonbarron/jonbarron_website">source code</a>)
+                    © 2025 Yonatan Sverdlov · This website is based on
+                    <a href="https://jonbarron.info/">Jon Barron</a>'s template
+                    (<a href="https://github.com/jonbarron/jonbarron_website">source code</a>)
                   </p>
                 </td>
               </tr>
