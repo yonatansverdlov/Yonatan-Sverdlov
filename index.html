@@ -11,53 +11,36 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
 
   <style>
-    /* ===== Smaller + nicer images ===== */
+    /* ===== Smaller images (more compact) ===== */
 
     /* Profile image */
     .profile-img {
       width: 100%;
-      max-width: 210px;      /* smaller than before */
+      max-width: 170px;      /* smaller */
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 999px;
       border: 1px solid rgba(0,0,0,0.15);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.09);
       display: block;
     }
 
     /* Paper thumbnails */
     .paper-thumb {
-      width: 130px;          /* smaller than before */
-      height: 130px;
+      width: 105px;          /* smaller */
+      height: 105px;
       object-fit: cover;
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,0.12);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 14px rgba(0,0,0,0.07);
       background: #fff;
       display: block;
     }
 
-    .paper-thumb:hover, .profile-img:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-      transition: 140ms ease;
-    }
-
-    .thumb-cell {
-      padding: 16px;
-      width: 25%;
-      vertical-align: middle;
-    }
-
-    /* Bold section heading like: Research */
-    heading.bold {
-      font-weight: 800;
-    }
-
-    /* Teaching block row image (GTIIT logo) */
+    /* GTIIT logo */
     .teach-logo {
-      width: 110px;
-      height: 110px;
+      width: 90px;          /* smaller */
+      height: 90px;
       object-fit: contain;
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,0.10);
@@ -65,10 +48,26 @@
       display: block;
     }
 
+    .thumb-cell {
+      padding: 14px;        /* slightly tighter */
+      width: 25%;
+      vertical-align: middle;
+    }
+
+    heading.bold { font-weight: 800; }
+
+    /* Remove hover scaling (keeps things tight) */
+    .paper-thumb:hover, .profile-img:hover, .teach-logo:hover {
+      transform: none;
+      box-shadow: 0 5px 14px rgba(0,0,0,0.07);
+      transition: 140ms ease;
+    }
+
     @media (max-width: 520px) {
-      .paper-thumb { width: 115px; height: 115px; }
-      .profile-img { max-width: 180px; }
-      .teach-logo { width: 95px; height: 95px; }
+      .paper-thumb { width: 92px; height: 92px; }
+      .profile-img { max-width: 145px; }
+      .teach-logo { width: 80px; height: 80px; }
+      .thumb-cell { padding: 10px; }
     }
   </style>
 
@@ -157,7 +156,7 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <td style="padding:2.5%;width:67%;vertical-align:middle">
                   <p style="text-align:center">
                     <name>Yonatan Sverdlov</name>
                   </p>
@@ -176,7 +175,7 @@
                   </p>
                 </td>
 
-                <td style="padding:2.5%;width:37%;vertical-align:middle">
+                <td style="padding:2.5%;width:33%;vertical-align:middle">
                   <a href="me.jpg">
                     <img alt="profile photo" src="me.jpg" class="profile-img">
                   </a>
@@ -185,11 +184,11 @@
             </tbody>
           </table>
 
-          <!-- Research (was Publications) -->
+          <!-- Research -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
+                <td style="padding:16px 20px;width:100%;vertical-align:middle">
                   <heading class="bold">Research</heading>
                 </td>
               </tr>
@@ -297,11 +296,11 @@
 
           <hr class="soft">
 
-          <!-- Teaching (GTIIT) -->
+          <!-- Teaching -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
+                <td style="padding:16px 20px;width:100%;vertical-align:middle">
                   <heading class="bold">Teaching</heading>
                 </td>
               </tr>
@@ -319,7 +318,7 @@
                   <papertitle>GTIIT (Guangdong Technion–Israel Institute of Technology)</papertitle>
                   <br>
                   <p style="margin:6px 0 0 0;">
-                    Teaching (add your exact role/course here once you want).
+                    Lecturer and Tutor.
                   </p>
                 </td>
               </tr>
