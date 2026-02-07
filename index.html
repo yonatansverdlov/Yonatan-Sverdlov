@@ -11,8 +11,6 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
 
   <style>
-    /* ===== Smaller images (more compact) ===== */
-
     /* Profile image */
     .profile-img {
       width: 100%;
@@ -25,35 +23,19 @@
       display: block;
     }
 
-    /* Paper thumbnails:
-       - thumb-box = fixed box size (STAYS SAME)
-       - paper-thumb = the image inside (MAKE SMALLER)
-    */
+    /* Paper thumbnails: JUST IMAGE (no box/border) */
+    .paper-thumb {
+      width: 72px;          /* <<< change this to make smaller/larger */
+      height: 72px;         /* <<< change this to make smaller/larger */
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Keep the cell size the same */
     .thumb-cell {
       padding: 14px;
       width: 25%;
       vertical-align: middle;
-    }
-
-    .thumb-box {
-      width: 105px;     /* box size stays the same */
-      height: 105px;
-      border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.12);
-      box-shadow: 0 5px 14px rgba(0,0,0,0.07);
-      background: #fff;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .paper-thumb {
-      width: 100px;      /* <<< image is smaller than the box */
-      height: 100px;
-      object-fit: contain;
-      display: block;
     }
 
     /* GTIIT logo */
@@ -69,33 +51,13 @@
 
     heading.bold { font-weight: 800; }
 
-    /* Remove hover scaling (keeps things tight) */
-    .profile-img:hover, .teach-logo:hover {
-      transform: none;
-      transition: 140ms ease;
-    }
-
     @media (max-width: 520px) {
+      .paper-thumb { width: 62px; height: 62px; }
       .profile-img { max-width: 145px; }
       .teach-logo { width: 80px; height: 80px; }
       .thumb-cell { padding: 10px; }
-
-      .thumb-box { width: 92px; height: 92px; }  /* box stays consistent on mobile */
-      .paper-thumb { width: 62px; height: 62px; } /* image stays smaller inside */
     }
   </style>
-
-  <script>
-    const copyToClipboard = str => {
-      const el = document.createElement('textarea');
-      el.value = str;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-      alert("The following bibtextex has been copied to clipboard:\n\n" + el.value);
-    };
-  </script>
 
   <!-- Collaborator auto-linking -->
   <script>
@@ -214,9 +176,7 @@
 
               <tr>
                 <td class="thumb-cell">
-                  <div class="thumb-box">
-                    <img src="activations.png" alt="Monotone and Separable" class="paper-thumb">
-                  </div>
+                  <img src="activations.png" alt="Monotone and Separable" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>Monotone and Separable Set Functions: Characterizations and Neural Models</papertitle>
@@ -234,9 +194,7 @@
 
               <tr>
                 <td class="thumb-cell">
-                  <div class="thumb-box">
-                    <img src="two_radius.jpg" alt="Short-Range Oversquashing" class="paper-thumb">
-                  </div>
+                  <img src="two_radius.jpg" alt="Short-Range Oversquashing" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>Short-Range Oversquashing in Graph Neural Networks</papertitle>
@@ -254,9 +212,7 @@
 
               <tr>
                 <td class="thumb-cell">
-                  <div class="thumb-box">
-                    <img src="Ring.png" alt="FSW-GNN" class="paper-thumb">
-                  </div>
+                  <img src="Ring.png" alt="FSW-GNN" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</papertitle>
@@ -275,9 +231,7 @@
 
               <tr>
                 <td class="thumb-cell">
-                  <div class="thumb-box">
-                    <img src="egent.png" alt="Sparse Geometric MPNNs" class="paper-thumb">
-                  </div>
+                  <img src="egent.png" alt="Sparse Geometric MPNNs" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>On the Expressive Power of Sparse Geometric MPNNs</papertitle>
@@ -296,9 +250,7 @@
 
               <tr>
                 <td class="thumb-cell">
-                  <div class="thumb-box">
-                    <img src="Equivariant_map_commutative_diagram.png" alt="Equivariance" class="paper-thumb">
-                  </div>
+                  <img src="Equivariant_map_commutative_diagram.png" alt="Equivariance" class="paper-thumb">
                 </td>
                 <td width="75%" valign="middle">
                   <papertitle>Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations</papertitle>
