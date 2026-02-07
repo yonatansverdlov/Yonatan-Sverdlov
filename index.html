@@ -11,50 +11,64 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
 
   <style>
-    /* ===== Image quality / layout fixes ===== */
+    /* ===== Smaller + nicer images ===== */
 
-    /* Profile image: clean circle crop */
+    /* Profile image */
     .profile-img {
       width: 100%;
-      max-width: 260px;
+      max-width: 210px;      /* smaller than before */
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 999px;
       border: 1px solid rgba(0,0,0,0.15);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
       display: block;
     }
 
-    /* Paper thumbnails: consistent size + clean crop */
+    /* Paper thumbnails */
     .paper-thumb {
-      width: 170px;
-      height: 170px;
+      width: 130px;          /* smaller than before */
+      height: 130px;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 10px;
       border: 1px solid rgba(0,0,0,0.12);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
       background: #fff;
       display: block;
     }
 
-    /* Small hover effect (optional) */
     .paper-thumb:hover, .profile-img:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
       transition: 140ms ease;
     }
 
-    /* Keep table cells aligned nicely */
     .thumb-cell {
-      padding: 20px;
+      padding: 16px;
       width: 25%;
       vertical-align: middle;
     }
 
-    /* Make thumbs slightly smaller on narrow screens */
+    /* Bold section heading like: Research */
+    heading.bold {
+      font-weight: 800;
+    }
+
+    /* Teaching block row image (GTIIT logo) */
+    .teach-logo {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: #fff;
+      display: block;
+    }
+
     @media (max-width: 520px) {
-      .paper-thumb { width: 140px; height: 140px; }
-      .profile-img { max-width: 200px; }
+      .paper-thumb { width: 115px; height: 115px; }
+      .profile-img { max-width: 180px; }
+      .teach-logo { width: 95px; height: 95px; }
     }
   </style>
 
@@ -70,10 +84,10 @@
     };
   </script>
 
-  <!-- Collaborator auto-linking (optional) -->
+  <!-- Collaborator auto-linking -->
   <script>
     const COLLAB_LINKS = new Map([
-      ["Nadav Dym", "https://dym.tech/"],
+      ["Nadav Dym", "https://nadavdym.github.io/"],
       ["Tal Amir", "https://talamir.github.io/"],
       ["Yaaqov Mishayev", "https://github.com/YakovM93"]
     ]);
@@ -151,18 +165,18 @@
                   <p>
                     I am a PhD student at the Technion – Israel Institute of Technology under the supervision of Prof. Nadav Dym.
                     My research focuses on Graph Neural Networks (GNNs), representation-based learning, and geometric aspects such as
-                    over-squashing, continuity, and Lipschitz stability.
+                    oversquashing, oversmoothing, continuity, and Lipschitz stability.
                   </p>
 
                   <p style="text-align:center">
                     <a href="mailto:yonatans@campus.technion.ac.il">Email</a> &nbsp/&nbsp
                     <a href="https://github.com/yonatansverdlov" target="_blank">GitHub</a> &nbsp/&nbsp
-                    <a href="https://scholar.google.com/citations?user=M4o74roAAAAJ" target="_blank">Google Scholar</a>
+                    <a href="https://scholar.google.com/citations?user=M4o74roAAAAJ" target="_blank">Google Scholar</a> &nbsp/&nbsp
+                    <a href="https://www.linkedin.com/in/yonatan-sverdlov-9b6436229/" target="_blank">LinkedIn</a>
                   </p>
                 </td>
 
                 <td style="padding:2.5%;width:37%;vertical-align:middle">
-                  <!-- Use a HIGH-RES image file here for best results -->
                   <a href="me.jpg">
                     <img alt="profile photo" src="me.jpg" class="profile-img">
                   </a>
@@ -171,12 +185,12 @@
             </tbody>
           </table>
 
-          <!-- Publications -->
+          <!-- Research (was Publications) -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Publications</heading>
+                  <heading class="bold">Research</heading>
                 </td>
               </tr>
             </tbody>
@@ -185,7 +199,6 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
-              <!-- NeurIPS 2025 -->
               <tr>
                 <td class="thumb-cell">
                   <img src="activations.png" alt="Monotone and Separable" class="paper-thumb">
@@ -204,7 +217,6 @@
                 </td>
               </tr>
 
-              <!-- LoG 2025 Best Paper -->
               <tr>
                 <td class="thumb-cell">
                   <img src="two_radius.jpg" alt="Short-Range Oversquashing" class="paper-thumb">
@@ -223,7 +235,6 @@
                 </td>
               </tr>
 
-              <!-- LoG 2025 -->
               <tr>
                 <td class="thumb-cell">
                   <img src="Ring.png" alt="FSW-GNN" class="paper-thumb">
@@ -243,7 +254,6 @@
                 </td>
               </tr>
 
-              <!-- ICLR 2025 -->
               <tr>
                 <td class="thumb-cell">
                   <img src="egent.png" alt="Sparse Geometric MPNNs" class="paper-thumb">
@@ -263,7 +273,6 @@
                 </td>
               </tr>
 
-              <!-- ICLR 2025 -->
               <tr>
                 <td class="thumb-cell">
                   <img src="Equivariant_map_commutative_diagram.png" alt="Equivariance" class="paper-thumb">
@@ -283,6 +292,37 @@
                 </td>
               </tr>
 
+            </tbody>
+          </table>
+
+          <hr class="soft">
+
+          <!-- Teaching (GTIIT) -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                  <heading class="bold">Teaching</heading>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td class="thumb-cell">
+                  <!-- Replace gtiit_logo.png with your logo file -->
+                  <img src="gtiit_logo.png" alt="GTIIT" class="teach-logo">
+                </td>
+                <td width="75%" valign="middle">
+                  <papertitle>GTIIT (Guangdong Technion–Israel Institute of Technology)</papertitle>
+                  <br>
+                  <p style="margin:6px 0 0 0;">
+                    Teaching (add your exact role/course here once you want).
+                  </p>
+                </td>
+              </tr>
             </tbody>
           </table>
 
