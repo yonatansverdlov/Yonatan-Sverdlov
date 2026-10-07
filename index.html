@@ -31,6 +31,22 @@
       display: block;
     }
 
+    .paper-badge {
+      width: 170px;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.35;
+      border: 1px solid rgba(0,0,0,0.14);
+      border-radius: 10px;
+      background: rgba(0,0,0,0.025);
+      box-sizing: border-box;
+      padding: 12px;
+    }
+
     /* Keep the cell size the same */
     .thumb-cell {
       padding: 14px;
@@ -53,6 +69,7 @@
 
     @media (max-width: 520px) {
       .paper-thumb { width: 62px; height: 62px; }
+      .paper-badge { width: 92px; height: 72px; font-size: 12px; }
       .profile-img { max-width: 145px; }
       .teach-logo { width: 80px; height: 80px; }
       .thumb-cell { padding: 10px; }
@@ -138,9 +155,13 @@
                   </p>
 
                   <p>
-                    I am a PhD student at the Technion – Israel Institute of Technology under the supervision of Prof. Nadav Dym.
-                    My research focuses on Graph Neural Networks (GNNs), representation-based learning, and geometric aspects such as
-                    oversquashing, oversmoothing, continuity, and Lipschitz stability.
+                    I am a final-stage PhD student at the Technion – Israel Institute of Technology under the supervision of Prof. Nadav Dym,
+                    and I expect to graduate in 2026. My research focuses on Graph Neural Networks (GNNs), geometric deep learning,
+                    learning on model and weight spaces, expressivity, oversquashing, invariance/equivariance, and Lipschitz-stable representations.
+                  </p>
+
+                  <p>
+                    <strong>I am currently seeking research internship and Research Scientist / Researcher opportunities.</strong>
                   </p>
 
                   <p style="text-align:center">
@@ -173,6 +194,42 @@
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
+
+              <tr>
+                <td class="thumb-cell">
+                  <div class="paper-badge">arXiv 2026<br>Under Review</div>
+                </td>
+                <td width="75%" valign="middle">
+                  <papertitle>Finite Probes Suffice: Identifiability and Universality for Weight-Space Learning</papertitle>
+                  <br>
+                  Soutrik Sarangi, <strong>Yonatan Sverdlov</strong>, Adir Dayan, Haggai Maron, Nadav Dym
+                  <br>
+                  <em>arXiv preprint, under review (2026)</em>
+                  <br>
+                  <div class="btn-group">
+                    <a href="https://arxiv.org/abs/2609.33901" target="_blank">Paper</a> /
+                    <a href="https://github.com/yonatansverdlov/HiddenProbe" target="_blank">Code</a>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="thumb-cell">
+                  <div class="paper-badge">NeurIPS 2026</div>
+                </td>
+                <td width="75%" valign="middle">
+                  <papertitle>When and How to Canonize: A Generalization Perspective</papertitle>
+                  <br>
+                  <strong>Yonatan Sverdlov</strong>, Benjamin Friedman, Snir Hordan, Nadav Dym
+                  <br>
+                  <em>NeurIPS 2026</em>
+                  <br>
+                  <div class="btn-group">
+                    <a href="https://arxiv.org/abs/2605.11008" target="_blank">Paper</a> /
+                    <a href="https://github.com/yonatansverdlov/Canonization" target="_blank">Code</a>
+                  </div>
+                </td>
+              </tr>
 
               <tr>
                 <td class="thumb-cell">
@@ -306,7 +363,7 @@
                 <td style="padding:0px">
                   <br>
                   <p style="margin-top:-20px;text-align:center;font-size:small;">
-                    © 2025 Yonatan Sverdlov · This website is based on
+                    © 2026 Yonatan Sverdlov · This website is based on
                     <a href="https://jonbarron.info/">Jon Barron</a>'s template
                     (<a href="https://github.com/jonbarron/jonbarron_website">source code</a>)
                   </p>
