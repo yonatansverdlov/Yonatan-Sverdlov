@@ -1,0 +1,103 @@
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1.8cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{array}
+
+% ---------- Formatting ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlist[itemize]{leftmargin=*, itemsep=1pt, topsep=2pt, parsep=0pt}
+\newcommand{\sectiontitle}[1]{\vspace{6pt}{\large\bfseries #1}\vspace{2pt}\hrule\vspace{4pt}}
+\newcommand{\role}[2]{\textbf{#1}\hfill #2\\}
+\newcommand{\subrole}[2]{\textit{#1}\hfill\textit{#2}\\[-2pt]}
+\newcommand{\me}{\textbf{Yonatan Sverdlov}}
+\newcommand{\pub}[4]{\item #2. \textit{#1}. \textbf{#3}, #4.}
+
+\begin{document}
+
+% ---------- Header ----------
+{\LARGE \textbf{Yonatan Sverdlov}}\\[-1pt]
+Final-stage PhD Candidate in Mathematics, Technion (graduating 2026) $\mid$ Seeking Research Internship / Research Scientist roles\\[-1pt]
+Graph Neural Networks $\mid$ Geometric Deep Learning $\mid$ Weight-Space Learning\\[2pt]
+Rehovot, Israel $\mid$ \href{mailto:yonatansverdlov276@gmail.com}{yonatansverdlov276@gmail.com} $\mid$ +972-54-4764271 $\mid$
+\href{https://yonatansverdlov.github.io/Yonatan-Sverdlov/}{Website} $\mid$
+\href{https://github.com/yonatansverdlov}{GitHub} $\mid$
+\href{https://scholar.google.com/citations?user=M4o74roAAAAJ}{Google Scholar}
+
+% ---------- Education ----------
+\sectiontitle{Education}
+\role{Technion -- Israel Institute of Technology}{Nov 2023 -- Present}
+\subrole{PhD in Mathematics}{Advisor: Prof. Nadav Dym}
+
+\role{Weizmann Institute of Science}{Mar 2021 -- Jul 2023}
+\subrole{MSc in Mathematics and Computer Science, GPA: 93.5}{Advisor: Prof. Shimon Ullman}
+
+\role{Tel Aviv University}{Oct 2017 -- Dec 2020}
+\subrole{BSc in Mathematics and Computer Science, GPA: 92}{}
+
+% ---------- Research Interests ----------
+\sectiontitle{Research Interests}
+Graph neural networks; geometric deep learning; learning on model and weight spaces; expressivity and oversquashing; invariance and equivariance; bi-Lipschitz and stable representations.
+
+% ---------- Publications ----------
+\sectiontitle{Publications}
+\begin{itemize}
+  \pub{When and How to Canonize: A Generalization Perspective}{\me, Benjamin Friedman, Snir Hordan, Nadav Dym}{NeurIPS}{2026}
+  \pub{Monotone and Separable Set Functions: Characterizations and Neural Models}{Soutrik Sarangi, \me, Nadav Dym, Abir De}{NeurIPS}{2025}
+  \pub{Short-Range Oversquashing}{Yaaqov Mishayev, \me, Tal Amir, Nadav Dym}{LoG (Oral)}{2025}
+  \pub{FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network}{\me, Yair Davidson, Nadav Dym, Tal Amir}{LoG}{2025}
+  \pub{On the Expressive Power of Sparse Geometric MPNNs}{\me, Nadav Dym}{ICLR}{2025}
+  \pub{Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations}{\me, Ido Springer, Nadav Dym}{ICLR}{2025}
+\end{itemize}
+
+% ---------- Preprints and Manuscripts ----------
+\sectiontitle{Preprints and Manuscripts}
+\begin{itemize}
+  \pub{Finite Probes Suffice: Identifiability and Universality for Weight-Space Learning}{Soutrik Sarangi, \me, Adir Dayan, Haggai Maron, Nadav Dym}{arXiv preprint; under review}{2026}
+  \pub{Toward Bi-Lipschitz Geometric Models}{\me, Eitan Rosen, Nadav Dym}{arXiv preprint}{2025}
+  \pub{Efficient Rehearsal Free Zero Forgetting Continual Learning using Adaptive Weight Modulation}{\me, Shimon Ullman}{arXiv preprint}{2023}
+\end{itemize}
+
+% ---------- Honors and Awards ----------
+\sectiontitle{Honors and Awards}
+\role{Best Paper Award, Learning on Graphs Conference (LoG)}{2025}
+
+% ---------- Research Experience ----------
+\newpage
+\sectiontitle{Research Experience}
+\role{Technion -- Israel Institute of Technology}{Nov 2023 -- Present}
+\subrole{PhD Researcher}{Graph Neural Networks and Geometric Deep Learning}
+\begin{itemize}
+  \item Develop theoretical and empirical methods for graph, geometric, and weight-space learning, with emphasis on expressivity, oversquashing, stability, and symmetry.
+  \item Design and implement PyTorch and PyTorch Geometric experiments to validate theoretical results and compare architectures across graph and model-space benchmarks.
+\end{itemize}
+
+\role{Weizmann Institute of Science}{Mar 2021 -- Jul 2023}
+\subrole{MSc Researcher}{Computer Vision and Continual Learning}
+\begin{itemize}
+  \item Developed adaptive weight modulation for rehearsal-free continual learning while preserving performance on previously learned tasks.
+  \item Implemented and evaluated deep-vision experiments across multiple continual-learning benchmarks.
+\end{itemize}
+
+\role{Evrideo}{Aug 2023 -- Oct 2023}
+\subrole{AI Consultant}{Applied Computer Vision}
+\begin{itemize}
+  \item Built a computer-vision proof of concept to evaluate the feasibility of an early-stage ML product.
+\end{itemize}
+
+% ---------- Skills ----------
+\sectiontitle{Technical Skills}
+\begin{tabular}{@{}p{3.1cm}p{12.4cm}@{}}
+\textbf{Programming} & Python, Java, C++ \\
+\textbf{ML / Scientific} & PyTorch, PyTorch Geometric, NumPy \\
+\textbf{Tools} & Git, GitHub, LaTeX \\
+\textbf{Languages} & Hebrew (native), English (professional proficiency) \\
+\end{tabular}
+
+\end{document}
