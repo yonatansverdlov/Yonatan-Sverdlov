@@ -32,5 +32,6 @@ jobs:
             echo "CV PDF is already up to date."
           else
             git commit -m "Update generated CV PDF"
+            git pull --rebase origin main
             git push
           fi
