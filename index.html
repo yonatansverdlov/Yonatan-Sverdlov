@@ -73,6 +73,9 @@
     }
 
     heading.bold { font-weight: 800; }
+    /* Subtle, accessible links on publication author names */
+    .paper-authors a { color: inherit; text-decoration: none; border-bottom: 1px dotted #888; }
+    .paper-authors a:hover, .paper-authors a:focus { color: #1772d0; border-bottom-color: currentColor; }
 
     @media (max-width: 520px) {
       .paper-thumb { width: 62px; height: 62px; }
@@ -84,70 +87,9 @@
     }
   </style>
 
-  <!-- Collaborator auto-linking -->
-  <script>
-    const COLLAB_LINKS = new Map([
-      ["Nadav Dym", "https://nadavdym.github.io/"],
-      ["Tal Amir", "https://talamir.github.io/"],
-      ["Yaaqov Mishayev", "https://github.com/YakovM93"]
-    ]);
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const SKIP_TAGS = new Set(["A", "SCRIPT", "STYLE", "TEXTAREA", "CODE", "PRE", "NOSCRIPT"]);
-      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-        acceptNode(node) {
-          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-          let p = node.parentNode;
-          while (p) {
-            if (SKIP_TAGS.has(p.nodeName)) return NodeFilter.FILTER_REJECT;
-            p = p.parentNode;
-          }
-          return NodeFilter.FILTER_ACCEPT;
-        }
-      });
-
-      const names = Array.from(COLLAB_LINKS.keys()).sort((a, b) => b.length - a.length);
-      if (names.length === 0) return;
-
-      const escapedNames = names.map(nm => nm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-      const re = new RegExp("\\b(" + escapedNames.join("|") + ")\\b", "g");
-
-      const toProcess = [];
-      let n;
-      while ((n = walker.nextNode())) toProcess.push(n);
-
-      for (const textNode of toProcess) {
-        const text = textNode.nodeValue;
-        let match, cursor = 0, changed = false;
-        const frag = document.createDocumentFragment();
-
-        while ((match = re.exec(text)) !== null) {
-          const name = match[0];
-          const start = match.index;
-
-          if (start > cursor) frag.appendChild(document.createTextNode(text.slice(cursor, start)));
-
-          const a = document.createElement("a");
-          a.textContent = name;
-          a.href = COLLAB_LINKS.get(name) || "#";
-          a.target = "_blank";
-          a.rel = "noopener";
-          frag.appendChild(a);
-
-          cursor = re.lastIndex;
-          changed = true;
-        }
-
-        if (changed) {
-          if (cursor < text.length) frag.appendChild(document.createTextNode(text.slice(cursor)));
-          textNode.parentNode.replaceChild(frag, textNode);
-        }
-      }
-    });
-  </script>
 </head>
 
-<body>
+<body id="top">
   <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
       <tr>
@@ -163,18 +105,18 @@
                   </p>
 
                   <p>
-                    I am a final-stage PhD student at the Technion – Israel Institute of Technology under the supervision of Prof. Nadav Dym,
-                    and I expect to graduate in 2026. My research focuses on Graph Neural Networks (GNNs), geometric deep learning,
+                    I have completed the requirements for a PhD in Mathematics at the Technion – Israel Institute of Technology, advised by Prof. Nadav Dym.
+                    My research focuses on Graph Neural Networks (GNNs), geometric deep learning,
                     learning on model and weight spaces, expressivity, oversquashing, invariance/equivariance, and Lipschitz-stable representations.
                     I combine a strong mathematical background with strong technical skills in machine learning research, implementation, and experimentation.
                   </p>
 
                   <p>
-                    <strong>I am currently seeking research internship and Research Scientist / Researcher opportunities.</strong>
+                    <strong>I am seeking full-time Research Scientist, Research Engineer, and Applied Scientist positions.</strong>
                   </p>
 
                   <p style="text-align:center">
-                    <a href="mailto:yonatans@campus.technion.ac.il">Email</a> &nbsp/&nbsp
+                    <a href="mailto:yonatansverdlov276@gmail.com">Email</a> &nbsp/&nbsp
                     <a href="cv.pdf" target="_blank">CV</a> &nbsp/&nbsp
                     <a href="https://github.com/yonatansverdlov" target="_blank">GitHub</a> &nbsp/&nbsp
                     <a href="https://scholar.google.com/citations?user=M4o74roAAAAJ" target="_blank">Google Scholar</a> &nbsp/&nbsp
@@ -196,7 +138,7 @@
             <tbody>
               <tr>
                 <td style="padding:16px 20px;width:100%;vertical-align:middle">
-                  <heading class="bold">Publications</heading>
+                  <heading class="bold" id="publications">Publications</heading>
                 </td>
               </tr>
             </tbody>
@@ -214,7 +156,7 @@
                 <td width="75%" valign="middle">
                   <papertitle>Finite Probes Suffice: Identifiability and Universality for Weight-Space Learning</papertitle>
                   <br>
-                  Soutrik Sarangi, <strong>Yonatan Sverdlov</strong>, Adir Dayan, Haggai Maron, Nadav Dym
+                  <span class="paper-authors"><a href="https://in.linkedin.com/in/soutrik-sarangi-01745718b" target="_blank" rel="noopener noreferrer">Soutrik Sarangi</a>, <strong><a href="#top">Yonatan Sverdlov</a></strong>, <a href="https://il.linkedin.com/in/adirdayan40" target="_blank" rel="noopener noreferrer">Adir Dayan</a>, <a href="https://haggaim.github.io/" target="_blank" rel="noopener noreferrer">Haggai Maron</a>, <a href="https://nadavdym.github.io/" target="_blank" rel="noopener noreferrer">Nadav Dym</a></span>
                   <br>
                   <em>arXiv preprint, under review (2026)</em>
                   <br>
@@ -234,7 +176,7 @@
                 <td width="75%" valign="middle">
                   <papertitle>When and How to Canonize: A Generalization Perspective</papertitle>
                   <br>
-                  <strong>Yonatan Sverdlov</strong>, Benjamin Friedman, Snir Hordan, Nadav Dym
+                  <span class="paper-authors"><strong><a href="#top">Yonatan Sverdlov</a></strong>, <a href="https://scholar.google.com/scholar?q=%22Benjamin+Friedman%22+%22Nadav+Dym%22" target="_blank" rel="noopener noreferrer">Benjamin Friedman</a>, <a href="https://snirhordan.github.io/" target="_blank" rel="noopener noreferrer">Snir Hordan</a>, <a href="https://nadavdym.github.io/" target="_blank" rel="noopener noreferrer">Nadav Dym</a></span>
                   <br>
                   <em>NeurIPS 2026</em>
                   <br>
@@ -252,7 +194,7 @@
                 <td width="75%" valign="middle">
                   <papertitle>Monotone and Separable Set Functions: Characterizations and Neural Models</papertitle>
                   <br>
-                  <strong>Yonatan Sverdlov</strong>, Nadav Dym
+                  <span class="paper-authors"><a href="https://in.linkedin.com/in/soutrik-sarangi-01745718b" target="_blank" rel="noopener noreferrer">Soutrik Sarangi</a>, <strong><a href="#top">Yonatan Sverdlov</a></strong>, <a href="https://nadavdym.github.io/" target="_blank" rel="noopener noreferrer">Nadav Dym</a>, <a href="https://www.cse.iitb.ac.in/~abir/" target="_blank" rel="noopener noreferrer">Abir De</a></span>
                   <br>
                   <em>NeurIPS 2025</em>
                   <br>
@@ -270,7 +212,7 @@
                 <td width="75%" valign="middle">
                   <papertitle>Short-Range Oversquashing in Graph Neural Networks</papertitle>
                   <br>
-                  Yaaqov Mishayev, <strong>Yonatan Sverdlov</strong>, Tal Amir, Nadav Dym
+                  <span class="paper-authors"><a href="https://github.com/YakovM93" target="_blank" rel="noopener noreferrer">Yaaqov Mishayev</a>, <strong><a href="#top">Yonatan Sverdlov</a></strong>, <a href="https://tal-amir.github.io/" target="_blank" rel="noopener noreferrer">Tal Amir</a>, <a href="https://nadavdym.github.io/" target="_blank" rel="noopener noreferrer">Nadav Dym</a></span>
                   <br>
                   <em>LoG 2025</em> &nbsp; (<strong>Best paper</strong>)
                   <br>
@@ -288,7 +230,7 @@
                 <td width="75%" valign="middle">
                   <papertitle>FSW-GNN: A Bi-Lipschitz WL-Equivalent Graph Neural Network</papertitle>
                   <br>
-                  <strong>Yonatan Sverdlov</strong>, Yair Davidson, Nadav Dym, Tal Amir
+                  <span class="paper-authors"><strong><a href="#top">Yonatan Sverdlov</a></strong>, <a href="https://www.linkedin.com/in/yair-davidson-015594176/" target="_blank" rel="noopener noreferrer">Yair Davidson</a>, <a href="https://nadavdym.github.io/" target="_blank" rel="noopener noreferrer">Nadav Dym</a>, <a href="https://tal-amir.github.io/" target="_blank" rel="noopener noreferrer">Tal Amir</a></span>
                   <br>
                   <em>LoG 2025</em>
                   <br>
@@ -307,7 +249,7 @@
                 <td width="75%" valign="middle">
                   <papertitle>On the Expressive Power of Sparse Geometric MPNNs</papertitle>
                   <br>
-                  <strong>Yonatan Sverdlov</strong>, Nadav Dym
+                  <span class="paper-authors"><strong><a href="#top">Yonatan Sverdlov</a></strong>, <a href="https://nadavdym.github.io/" target="_blank" rel="noopener noreferrer">Nadav Dym</a></span>
                   <br>
                   <em>ICLR 2025</em>
                   <br>
@@ -326,7 +268,7 @@
                 <td width="75%" valign="middle">
                   <papertitle>Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations</papertitle>
                   <br>
-                  <strong>Yonatan Sverdlov</strong>, Ido Springer, Nadav Dym
+                  <span class="paper-authors"><strong><a href="#top">Yonatan Sverdlov</a></strong>, <a href="https://github.com/IdoSpringer" target="_blank" rel="noopener noreferrer">Ido Springer</a>, <a href="https://nadavdym.github.io/" target="_blank" rel="noopener noreferrer">Nadav Dym</a></span>
                   <br>
                   <em>ICLR 2025</em>
                   <br>
